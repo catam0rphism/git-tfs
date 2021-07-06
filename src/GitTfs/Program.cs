@@ -122,6 +122,10 @@ namespace GitTfs
                 consoleTarget.Layout = @"${message}";
                 fileTarget.FileName = @"${specialfolder:LocalApplicationData}\git-tfs\" + GitTfsConstants.LogFileName;
                 fileTarget.Layout = "${longdate} [${level}] ${message}";
+                fileTarget.ArchiveAboveSize = 2097152;
+                fileTarget.MaxArchiveFiles = 10;
+                fileTarget.EnableArchiveFileCompression = true;
+                fileTarget.ArchiveNumbering = ArchiveNumberingMode.Rolling;
 
                 // Step 4. Define rules
                 var consoleRule = new LoggingRule("*", LogLevel.Info, consoleTarget);
